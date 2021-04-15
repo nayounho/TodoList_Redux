@@ -1,15 +1,18 @@
 import ListItem from 'Containers/ListItem/ListItem';
-import todos from 'data';
-import { useEffect } from 'react';
+import data from 'data';
+import { useEffect, useState } from 'react';
+import { Todo, Todos } from 'type';
 
 const TodoList = () => {
+  const [todos, setTodos] = useState([] as Todos);
+
   useEffect(() => {
-    console.log(todos);
-  });
+    setTodos(() => [...data]);
+  }, [setTodos]);
 
   return (
     <ul>
-      {todos.map(todo => (
+      {todos.map((todo: Todo) => (
         <ListItem key={todo.id} id={todo.id + ''} name={todo.content}></ListItem>
       ))}
     </ul>
