@@ -24,3 +24,6 @@
 2. Redux를 사용하기 위한 준비 (store, reducer, initialState) -> store가 필요하여 만들려고 했더니 reducer가 필요했고 reducer를 만들려고 했더니 상태가 필요하여 initialState가 필요했다
 3. store를 최상단에 배치하기 위하여 Provider를 사용 ex) index.js 확인
 4. 여러개의 reducer를 관리하기 위해서는 rootReducer(combineReducers 를 사용하여 생성)를 생성하여 createStore()에 넣어준다 ex) rootReducer 확인
+5. dispatch(useDispatch) 상태 조작 -> 상태를 조작하기 위해서 actionCreate 함수를 작성 ex) todosReducer 와 newTodoReducer 확인
+6. 이벤트핸들러를 작성하여 해당 tag에 사용
+7. dispatch를 연달아 사용했을 경우 순서가 보장이 안되어 reducer안에서 id 값을 조작 ex) todosReducer 확인

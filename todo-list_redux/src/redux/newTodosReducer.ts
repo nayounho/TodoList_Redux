@@ -4,8 +4,6 @@ const initialState = {
   complete: false
 };
 
-// dispatch({ type: 'NEWID', payload: 3 })
-
 const createIdAction = (newId: number) => {
   return { type: 'NEWID', payload: newId };
 };

@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from 'redux';
-import todosReducer from '../redux/todosReducer';
+import { todosReducer } from '../redux/todosReducer';
 import testReducer from '../redux/testReducer';
 import { newTodoReducer } from './newTodosReducer';
 

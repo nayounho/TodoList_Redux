@@ -1,14 +1,9 @@
 import ListItem from 'Containers/ListItem/ListItem';
-import data from 'data';
-import { useEffect, useState } from 'react';
-import { Todo, Todos } from 'type';
+import { useSelector } from 'react-redux';
+import { Todo } from 'type';
 
 const TodoList = () => {
-  const [todos, setTodos] = useState([] as Todos);
-
-  useEffect(() => {
-    setTodos(() => [...data]);
-  }, [setTodos]);
+  const todos = useSelector((state: any) => state.todos);
 
   return (
     <ul>

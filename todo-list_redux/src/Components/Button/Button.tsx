@@ -1,12 +1,15 @@
+import { MouseEventHandler, useEffect } from 'react';
+
 type ButtonProps = {
   className?: string;
   children: string;
   type?: 'button' | 'submit';
+  onClick?: MouseEventHandler;
 };
 
-const Button = ({ className, children, type }: ButtonProps) => {
+const Button = ({ className, children, type, onClick }: ButtonProps) => {
   return (
-    <button type={type} className={className}>
+    <button onClick={onClick} type={type} className={className}>
       {children}
     </button>
   );

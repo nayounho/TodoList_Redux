@@ -1,8 +1,4 @@
-import { ChangeEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { CombinedState } from 'redux';
-import { createContentAction, createIdAction } from 'redux/newTodosReducer';
-import { Todo } from 'type';
+import { ChangeEventHandler } from 'react';
 
 type InputStyled = {
   className?: string;
@@ -10,18 +6,10 @@ type InputStyled = {
   id: string;
   name: string;
   setContent?: any;
+  onChange?: ChangeEventHandler;
 };
 
-const Input = ({ className, type, id, name }: InputStyled) => {
-  const newTodo = useSelector((state: CombinedState<{ newTodo: Todo }>) => state.newTodo);
-  const dispatch = useDispatch();
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(createContentAction(e.target.value));
-    dispatch(createIdAction(e.target.value));
-    console.log(newTodo);
-  };
-  //
+const Input = ({ className, type, id, name, onChange }: InputStyled) => {
   return (
     <>
       <input id={id} name={name} className={className} type={type} onChange={onChange} />
