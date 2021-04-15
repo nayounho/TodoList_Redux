@@ -23,3 +23,4 @@
 1. 상태를 useState로 관리하다보니 많은 곳에서 상태를 불러올 경우가 많아 Redux사용하기로 함
 2. Redux를 사용하기 위한 준비 (store, reducer, initialState) -> store가 필요하여 만들려고 했더니 reducer가 필요했고 reducer를 만들려고 했더니 상태가 필요하여 initialState가 필요했다
 3. store를 최상단에 배치하기 위하여 Provider를 사용 ex) index.js 확인
+4. 여러개의 reducer를 관리하기 위해서는 rootReducer(combineReducers 를 사용하여 생성)를 생성하여 createStore()에 넣어준다 ex) rootReducer 확인
