@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react';
+import { ChangeEventHandler, MouseEventHandler } from 'react';
 
 type InputStyled = {
   className?: string;
@@ -7,12 +7,20 @@ type InputStyled = {
   name: string;
   setContent?: any;
   onChange?: ChangeEventHandler;
+  completed?: boolean;
 };
 
-const Input = ({ className, type, id, name, onChange }: InputStyled) => {
+const Input = ({ className, type, id, name, onChange, completed }: InputStyled) => {
   return (
     <>
-      <input id={id} name={name} className={className} type={type} onChange={onChange} />
+      <input
+        id={id}
+        name={name}
+        className={className}
+        type={type}
+        onChange={onChange}
+        checked={completed}
+      />
       <label htmlFor={id}>{name}</label>
     </>
   );

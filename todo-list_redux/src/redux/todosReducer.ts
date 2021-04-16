@@ -1,12 +1,24 @@
+import todos from 'data';
 import { Todos } from 'type';
 
-const initialState = [] as Todos;
+type action = {
+  type: string;
+  payload?: any;
+};
+
+const initialState = todos;
 
 const updataAction = (content: string) => {
   return { type: 'UPDATE', payload: content };
 };
+const changeCompletedAction = (id: number) => {
+  return { type: 'CHANGECOMPLETED', payload: id };
+};
+const deleteList = (id: number) => {
+  return { type: 'DELETE', payload: id };
+};
 
-const todosReducer = (state = initialState, action: any) => {
+const todosReducer = (state = initialState, action: action) => {
   switch (action.type) {
     case 'CREATE':
       return [...action.payload];
@@ -18,9 +30,15 @@ const todosReducer = (state = initialState, action: any) => {
           content: action.payload
         }
       ];
+    case 'CHANGECOMPLETED':
+      return state.map(todo =>
+        action.payload === todo.id ? { ...todo, completed: !todo.completed } : todo
+      );
+    case 'DELETE':
+      return state.filter(todo => action.payload !== todo.id);
     default:
       return state;
   }
 };
 
-export { todosReducer, updataAction };
+export { todosReducer, updataAction, changeCompletedAction, deleteList };
