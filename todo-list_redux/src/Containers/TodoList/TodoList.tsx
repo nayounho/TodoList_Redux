@@ -1,8 +1,8 @@
-import ListItem from 'Containers/ListItem/ListItem';
-import { ChangeEventHandler } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeCompletedAction } from 'redux/todosReducer';
-import { Todo } from 'type';
+import ListItem from "Containers/ListItem/ListItem";
+import { ChangeEventHandler, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeCompletedAction } from "redux/todosReducer";
+import { Todo } from "type";
 
 const TodoList = () => {
   const todos = useSelector((state: any) => state.todos);
@@ -18,7 +18,7 @@ const TodoList = () => {
       {todos.map((todo: Todo) => (
         <ListItem
           key={todo.id}
-          id={todo.id + ''}
+          id={todo.id + ""}
           name={todo.content}
           completed={todo.completed}
           onChange={onChange}
